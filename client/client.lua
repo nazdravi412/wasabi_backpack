@@ -50,6 +50,18 @@ AddEventHandler('ox_inventory:updateInventory', function(changes)
     end
 end)
 
+--Added Duffel Bag to Inventory
+RegisterNetEvent("ND:setCharacter", function()
+	if justConnect then
+        Wait(4500)
+        justConnect = nil
+    end
+	local count = exports.ox_inventory:Search('count', 'largebag')
+    if count >= 1 then
+        SetPedComponentVariation(cache.ped, 5, 82, 0, 0);
+    end
+end)
+
 lib.onCache('ped', function(value)
     ped = value
 end)
